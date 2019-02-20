@@ -1,0 +1,37 @@
+.transport-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.transport-is-mobile .transport-toolbar {
+  position: fixed;
+  z-index: 2;
+}
+
+h1.transport-app-name {
+  margin-left: 8px;
+}
+
+.transport-sidenav-container {
+  flex: 1;
+}
+
+.transport-is-mobile .transport-sidenav-container {
+  flex: 1 0 auto;
+}
+
+mat-sidenav-content {
+  padding: .5em;
+}
+
+.rotating-icon {
+  transition: transform .3s ease-in-out;
+}
+.rotating-icon.rotated {
+  transform: rotate(180deg);
+}

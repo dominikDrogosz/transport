@@ -1,0 +1,15 @@
+<form name="test-form" (ngSubmit)="onSubmit()">
+  <div>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Test" name="test-input" aria-label="Test" [(ngModel)]="testForm.name">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-slide-toggle name="test-slide" [(ngModel)]="testForm.active">
+      Test#2
+    </mat-slide-toggle>
+  </div>
+  <div>
+    <button mat-button type="submit">Wyślij</button>
+  </div>
+</form>
