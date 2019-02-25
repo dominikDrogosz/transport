@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SearchService} from '../api.service';
+import {InMemoryApiService} from '../inMemoryApi.service';
 
 @Component({
   selector: 'app-dashboard',

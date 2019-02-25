@@ -32,8 +32,8 @@ const materialModules = [
   MatSlideToggleModule
 ];
 
-export const webApi = environment.production ?
-  [] : HttpClientInMemoryWebApiModule.forRoot(InMemoryApiService, { delay: 100 });
+const webApi = environment.production ?
+  [] : HttpClientInMemoryWebApiModule.forRoot(InMemoryApiService, { delay: 200 });
 
 @NgModule({
   declarations: [

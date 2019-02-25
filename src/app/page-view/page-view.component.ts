@@ -10,9 +10,8 @@ import {routesInNavbar} from '../app-routing.module';
 })
 export class PageViewComponent implements OnDestroy {
   @ViewChild('snav') snav: MatSidenav;
-  mobileQuery: MediaQueryList;
-  fillerNav = routesInNavbar;
-
+  private mobileQuery: MediaQueryList;
+  private fillerNav = routesInNavbar;
   private mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {

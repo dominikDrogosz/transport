@@ -1,15 +1,27 @@
 <form name="test-form" (ngSubmit)="onSubmit()">
   <div>
     <mat-form-field>
-      <input matInput type="text" placeholder="Test" name="test-input" aria-label="Test" [(ngModel)]="testForm.name">
+      <input matInput type="text" placeholder="Name" name="test-input" aria-label="Test" [(ngModel)]="testForm.name">
     </mat-form-field>
   </div>
   <div>
     <mat-slide-toggle name="test-slide" [(ngModel)]="testForm.active">
-      Test#2
+      {{testForm.active ? 'Online' : 'Offline'}}
     </mat-slide-toggle>
   </div>
   <div>
     <button mat-button type="submit">Wyślij</button>
+    <button mat-button type="button" (click)="addRandom()">Dodaj losowy obiekt</button>
+  </div>
+  <div *ngFor="let element of elementsToShow">
+    <div>
+      #{{element.id}} {{element.name}} {{element.lastName}} is {{element.active ? 'Online' : 'Offline'}}
+    </div>
+    <div>
+      UUID of this element is {{element.uuid}}
+    </div>
+    <div>
+      {{element.description}}
+    </div>
   </div>
 </form>

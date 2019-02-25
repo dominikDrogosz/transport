@@ -16,6 +16,11 @@ export class SearchService {
       .get(`api/elements/?name=${name}&active=${active}`);
   }
 
+  addNewElement(element: any): Observable<any> {
+    return this.http
+      .post(`api/elements`, element);
+  }
+
   getAll(): Observable<any> {
     return this.http
       .get(`api/elements`);

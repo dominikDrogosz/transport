@@ -1,5 +1,5 @@
 <div>
-  <div *ngFor="let element of elementsToShow">
-    #{{element.id}}. {{element.name}}
+  <div *ngFor="let element of elementsToShow" [ngStyle]="{'color': element.active? 'darkgreen' : 'darkred'}">
+    #{{element.id}}. {{element.name}} {{element.lastName}}
   </div>
 </div>

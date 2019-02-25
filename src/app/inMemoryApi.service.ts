@@ -6,26 +6,29 @@ import * as faker from 'faker/locale/pl';
   providedIn: 'root'
 })
 export class InMemoryApiService implements InMemoryDbService  {
+  elements = [];
 
   createDb() {
-    const elements = this.getElements(10);
-    return {elements};
+    this.newElements(10);
+    return {
+      elements: this.elements
+    };
   }
 
-  getElements(size: number): Array<any> {
-    const elements = [];
-    for (let i = 0; i < size; i++) {
-      elements.push(this.oneElement(i+1));
+  newElements(size: number) {
+    for (let i = 1; i <= size; i++) {
+      this.elements.push(this.oneElement());
     }
-    return elements;
   }
 
-  oneElement = (id: number) => {
+  oneElement = () => {
+    const id = this.elements.length + 1;
     return {
       ...{id},
       uuid: faker.random.uuid(),
       active: faker.random.boolean(),
       name: faker.name.firstName(),
+      lastName: faker.name.lastName(),
       description: faker.lorem.sentence(),
       date: faker.date.future(),
     };
