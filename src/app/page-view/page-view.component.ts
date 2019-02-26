@@ -1,7 +1,7 @@
 import {Component, ChangeDetectorRef, OnDestroy, ViewChild} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material';
-import {routesInNavbar} from '../app-routing.module';
+import {AbstractRouteDefinition, RouteDefinition, routesInNavbar} from '../app-routing.module';
 
 @Component({
   selector: 'app-page-view',
@@ -26,5 +26,9 @@ export class PageViewComponent implements OnDestroy {
 
   toggleSnav() {
     this.snav.toggle();
+  }
+
+  changeChildrenVisiblity(nav: AbstractRouteDefinition): void {
+    nav.showChildren = !nav.showChildren;
   }
 }

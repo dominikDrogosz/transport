@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {SearchService} from '../api.service';
-import {InMemoryApiService} from '../inMemoryApi.service';
 
 @Component({
   selector: 'app-test-form',
@@ -16,8 +15,7 @@ export class TestFormComponent {
 
   elementsToShow = [];
 
-  constructor(private searchService: SearchService,
-              private inMemoryApiService: InMemoryApiService) {
+  constructor(private searchService: SearchService) {
   }
 
   onSubmit() {
@@ -26,12 +24,5 @@ export class TestFormComponent {
         this.elementsToShow = [...this.elementsToShow, ...response];
       }
     );
-  }
-
-  addRandom() {
-    const element = this.inMemoryApiService.oneElement();
-    this.searchService.addNewElement(element).subscribe(() => {
-      this.searchService.getAll().subscribe(response => console.log(response));
-    });
   }
 }

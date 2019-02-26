@@ -8,6 +8,7 @@ import {
   MatFormFieldModule, MatInputModule, MatListModule,
   MatRippleModule, MatToolbarModule, MatSidenavModule,
 } from '@angular/material';
+import {MatCardModule} from '@angular/material/card';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -29,7 +30,8 @@ const materialModules = [
   MatToolbarModule,
   MatSidenavModule,
   MatListModule,
-  MatSlideToggleModule
+  MatSlideToggleModule,
+  MatCardModule
 ];
 
 const webApi = environment.production ?
