@@ -1,0 +1,25 @@
+<form name="vehicle-form">
+  <div class="row">
+    <mat-form-field class="col-md">
+      <input matInput type="text" placeholder="Car registration" name="number" aria-label="Number"
+             [(ngModel)]="vehicleDataForm.number">
+    </mat-form-field>
+    <mat-form-field class="col-md">
+      <input matInput type="text" placeholder="Type" name="type" aria-label="Type"
+             [(ngModel)]="vehicleDataForm.type">
+    </mat-form-field>
+    <mat-form-field class="col-md">
+      <input matInput type="number" placeholder="Number of wheels" name="wheelsNumber" aria-label="Wheels Number"
+             [(ngModel)]="vehicleDataForm.wheelsNumber">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-select placeholder="Devices" multiple>
+        <mat-option *ngFor="let device of devices" [value]="vehicleDataForm.device">{{device}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <button class="danger" mat-button type="submit">Remove</button>
+  <button mat-button type="submit">Submit</button>
+</form>

@@ -1,0 +1,20 @@
+<mat-card class="section-margin">
+  <mat-card-title>Add order</mat-card-title>
+  <form name="worker-form" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <mat-form-field class="col-md">
+        <input matInput type="date" placeholder="Date" name="date" aria-label="Date"
+               [(ngModel)]="jobDataForm.date">
+      </mat-form-field>
+      <mat-form-field class="col-md">
+        <input matInput type="text" placeholder="Description" name="description" aria-label="Description"
+               [(ngModel)]="jobDataForm.description">
+      </mat-form-field>
+      <mat-form-field class="col-md" *ngIf="jobDataForm.isExternal">
+        <input matInput type="text" placeholder="Employee" name="employee" aria-label="Employee"
+               [(ngModel)]="jobDataForm.employee">
+      </mat-form-field>
+    </div>
+    <button mat-button type="submit">Submit</button>
+  </form>
+</mat-card>

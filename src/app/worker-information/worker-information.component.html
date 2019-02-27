@@ -1,0 +1,48 @@
+<mat-card class="section-margin">
+  <mat-card-title>Find worker</mat-card-title>
+  <form name="worker-form" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 form-column">
+        <mat-form-field>
+          <input matInput type="text" placeholder="First name" name="name" aria-label="Name"
+                 [(ngModel)]="workerDataForm.name">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Last name" name="lastname" aria-label="Last name"
+                 [(ngModel)]="workerDataForm.lastName">
+        </mat-form-field>
+      </div>
+      <div class="col-sm-12 col-md-6 form-column">
+        <mat-form-field>
+          <input matInput type="email" placeholder="E-mail" name="email" aria-label="E-mail"
+                 [(ngModel)]="workerDataForm.email">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="text" placeholder="License driver number" name="licence-number"
+                 aria-label="Licence number"
+                 [(ngModel)]="workerDataForm.licenceNumber">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="spaced-elements">
+      <mat-checkbox [(ngModel)]="workerDataForm.isDriver" name="is-driver">Show drivers</mat-checkbox>
+      <button mat-button type="submit">Submit</button>
+    </div>
+  </form>
+</mat-card>
+<mat-card class="section-margin">
+  <mat-card-title>Znalezeni pracownicy</mat-card-title>
+  <div *ngFor="let worker of workersExamples">
+    <div class="row" *ngIf="worker.name === workerDataForm.name && workerDataForm.name ||
+        worker.lastName === workerDataForm.lastName && workerDataForm.lastName ||
+        worker.email === workerDataForm.email && workerDataForm.email ||
+        worker.licenceNumber === workerDataForm.licenceNumber && workerDataForm.licenceNumber ||
+        !!worker.licenceNumber && workerDataForm.isDriver">
+      <div class="col-sm"><strong>First name:</strong> {{worker.name}}</div>
+      <div class="col-sm"><strong>Last name:</strong> {{worker.lastName}}</div>
+      <div class="col-sm"><strong>Email:</strong> {{worker.email}}</div>
+      <div class="col-sm"><strong>Driver License Number:</strong> {{worker.licenceNumber}}</div>
+      <div class="col-sm"><strong>Is it a driver:</strong> {{!!worker.licenceNumber ? 'tak' : 'nie'}}</div>
+    </div>
+  </div>
+</mat-card>

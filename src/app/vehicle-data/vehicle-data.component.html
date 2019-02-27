@@ -1,0 +1,28 @@
+<form name="vehicle-form" (ngSubmit)="onSubmit()">
+  <mat-card class="section-margin">
+    <mat-card-title>
+      Vehicle data form
+    </mat-card-title>
+    <div>
+      <mat-form-field>
+        <input matInput type="text" placeholder="Name" name="test-input" aria-label="Name"
+               [(ngModel)]="vehicleDataForm.name">
+      </mat-form-field>
+    </div>
+    <div *ngFor="let vehicleCheckbox of vehicleDataForm.categories">
+      <mat-checkbox [(ngModel)]="vehicleCheckbox.value"
+                    name="{{vehicleCheckbox.formName}}">{{vehicleCheckbox.name}}</mat-checkbox>
+    </div>
+    <div>
+      <button mat-button type="submit">Submit</button>
+    </div>
+  </mat-card>
+
+  <div *ngFor="let vehicleCheckbox of vehicleDataForm.categories">
+    <mat-card *ngIf="vehicleCheckbox.value" class="section-margin">
+      <mat-card-title>
+        {{vehicleCheckbox.name}}
+      </mat-card-title>
+    </mat-card>
+  </div>
+</form>

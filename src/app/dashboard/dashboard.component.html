@@ -1,5 +1,22 @@
 <div>
-  <div *ngFor="let element of elementsToShow" [ngStyle]="{'color': element.active? 'darkgreen' : 'darkred'}">
-    #{{element.id}}. {{element.name}} {{element.lastName}}
-  </div>
+  <mat-card class="section-margin">
+    <mat-card-title>
+      Accepted orders
+    </mat-card-title>
+    Done: 200
+    In progress: 5
+  </mat-card>
+  <mat-card class="section-margin">
+    <mat-card-title>
+      External orders
+    </mat-card-title>
+    Done: 200
+    In progress: 5
+  </mat-card>
+  <mat-card class="section-margin">
+    <mat-card-title>
+      Last changes:
+    </mat-card-title>
+    The XYZ order status has been changed from IN PROGRESS to COMPLETED
+  </mat-card>
 </div>
