@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Job} from '../job';
+import {OrderStatus, TransportOrder} from '../../shared/modules/transportOrder';
 
 @Component({
   selector: 'app-transport-jobs-add',
@@ -8,12 +8,31 @@ import {Job} from '../job';
 })
 export class TransportJobsAddComponent implements OnInit {
 
-  jobDataForm = {
-    employee: '',
-    employer: '',
+  statusesList: Array<OrderStatus> = ['NEW', 'DONE', 'IN PROGRESS'];
+  jobDataForm: TransportOrder = {
+    shipperAgent: '',
+    statusDate: new Date(),
+    status: 'NEW',
+    carrier: '',
+    shipper: '',
+    weight: 0,
+    volume: '',
+    monStandard: false,
     description: '',
-    date: new Date(),
-    isExternal: false
+    name: '',
+    loadingDates: {
+      dateFrom: new Date(),
+      dateTo: new Date()
+    },
+    loadingAddress: {
+      zipCode: '',
+      street: '',
+      phone: '',
+      localNo: 0,
+      country: '',
+      houseNo: 0,
+      city: ''
+    }
   };
 
   constructor() { }

@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {VehicleDataComponent} from './vehicle-data/vehicle-data.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {WorkerInformationComponent} from './worker-information/worker-information.component';
 import {TransportJobsAcceptedComponent} from './transport-jobs/accepted/accepted.component';
@@ -10,6 +9,8 @@ import {VehicleUpdatingModifyComponent} from './vehicle-update/modify/vehicle-up
 import {VehicleUpdatingAddComponent} from './vehicle-update/add/vehicle-updating-add.component';
 import {DevicesComponent} from './devices/devices.component';
 import {VehiclesListComponent} from './vehicles-list/vehicles-list.component';
+import {SingleWorkerDataComponent} from './single-worker-data/single-worker-data.component';
+import {JobDetailsComponent} from './job-details/job-details.component';
 
 export type RouteDefinition = TypicalRouteDefinition|AbstractRouteDefinition & {
   name: string;
@@ -27,7 +28,7 @@ export interface AbstractRouteDefinition {
 export const routesInNavbar: Array<RouteDefinition> = [
   {path: '', name: 'Dashboard'},
   {path: 'vehicle-data', name: 'Vehicle data'},
-  {path: 'worker-data', name: 'Workers informations'},
+  {path: 'employees-list', name: 'Employees List'},
   {
     name: 'Transport orders', showChildren: false,
     children: [
@@ -59,7 +60,9 @@ const vehicleRoutes: Routes = [
 const routes: Routes = [
   {path: '', component: DashboardComponent},
   {path: 'vehicle-data', component: VehiclesListComponent},
-  {path: 'worker-data', component: WorkerInformationComponent},
+  {path: 'employees-list', component: WorkerInformationComponent},
+  {path: 'employee-details/:id', component: SingleWorkerDataComponent},
+  {path: 'order-details/:id', component: JobDetailsComponent},
   {path: 'devices', component: DevicesComponent},
   {path: 'transport-jobs', children: transportRoutes},
   {path: 'vehicle-update', children: vehicleRoutes}

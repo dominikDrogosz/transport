@@ -8,13 +8,15 @@ import * as faker from 'faker/locale/pl';
 })
 export class VehiclesListComponent implements OnInit {
 
-  displayedColumns: Array<string> = ['id', 'state', 'mark', 'fleetType'];
+  displayedColumns: Array<string> = ['id', 'state', 'mark', 'fleetType', 'leasingDateFrom', 'leasingDateTo'];
   exampleVehicles = [
     {
       id: 1,
       state: faker.lorem.sentence(),
       mark: faker.lorem.sentence(),
       fleetType: 'leased',
+      leasingDateFrom: new Date(),
+      leasingDateTo: new Date()
     }, {
       id: 2,
       state: faker.lorem.sentence(),
@@ -25,6 +27,8 @@ export class VehiclesListComponent implements OnInit {
       state: faker.lorem.sentence(),
       mark: faker.lorem.sentence(),
       fleetType: 'leased',
+      leasingDateFrom: new Date(),
+      leasingDateTo: new Date()
     }, {
       id: 4,
       state: faker.lorem.sentence(),

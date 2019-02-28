@@ -30,6 +30,8 @@ import { VehicleUpdatingAddComponent } from './vehicle-update/add/vehicle-updati
 import { VehicleFormComponent } from './vehicle-update/vehicle-form/vehicle-form.component';
 import { DevicesComponent } from './devices/devices.component';
 import { VehiclesListComponent } from './vehicles-list/vehicles-list.component';
+import { SingleWorkerDataComponent } from './single-worker-data/single-worker-data.component';
+import { JobDetailsComponent } from './job-details/job-details.component';
 
 const materialModules = [
   MatButtonModule,
@@ -66,7 +68,9 @@ const webApi = environment.production ?
     VehicleUpdatingAddComponent,
     VehicleFormComponent,
     DevicesComponent,
-    VehiclesListComponent
+    VehiclesListComponent,
+    SingleWorkerDataComponent,
+    JobDetailsComponent
   ],
   imports: [
     BrowserModule,

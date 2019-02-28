@@ -1,0 +1,20 @@
+<mat-card class="section-margin">
+  <mat-card-title>Employee Details:</mat-card-title>
+  <div><strong>First name:</strong> {{currentWorker.name}}</div>
+  <div><strong>Last name:</strong> {{currentWorker.lastName}}</div>
+  <div><strong>Email:</strong> {{currentWorker.email}}</div>
+</mat-card>
+<mat-card class="section-margin">
+  <mat-card-title>Phone numbers:</mat-card-title>
+  <div *ngFor="let phoneNumber of currentWorker.phoneNumbers; let i = index;">
+    <strong>#{{i + 1}}.</strong> {{phoneNumber}}
+  </div>
+</mat-card>
+<mat-card class="section-margin">
+  <mat-card-title>Documents</mat-card-title>
+  <div *ngFor="let document of currentWorker.documents; let i = index;">
+    <h3>#{{i + 1}}. {{document.type}}</h3>
+    <div>Document number: {{document.number}}</div>
+    <div>Valid to: {{document.validityDate | date:'mediumDate'}}</div>
+  </div>
+</mat-card>

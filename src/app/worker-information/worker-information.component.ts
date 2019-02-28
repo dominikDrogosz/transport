@@ -1,12 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import * as faker from 'faker/locale/pl';
-
-interface Worker {
-  name: string;
-  lastName: string;
-  email: string;
-  licenceNumber?: string;
-}
+import {SearchService} from '../api.service';
+import {WorkerForm} from '../shared/modules/wokerForm';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-worker-information',
@@ -15,40 +10,35 @@ interface Worker {
 })
 export class WorkerInformationComponent implements OnInit {
 
-  workerDataForm = {
+  workers = [];
+  displayedColumns = ['name', 'lastName', 'email', 'button'];
+  workerDataForm: WorkerForm = {
     name: '',
     lastName: '',
     email: '',
     licenceNumber: '',
-    isDriver: false
+    documents: ['Driver license']
   };
 
-  workersExamples: Array<Worker> = [
-    {
-      email: 'test@test.pl',
-      lastName: faker.name.lastName(),
-      name: faker.name.firstName()
-    },
-    {
-      email: 'test@test.pl',
-      lastName: faker.name.lastName(),
-      name: faker.name.firstName(),
-      licenceNumber: '1111'
-    },
-    {
-      email: 'test@test.pl',
-      lastName: faker.name.lastName(),
-      name: faker.name.firstName(),
-      licenceNumber: '2121'
-    }
-  ];
-
-  constructor() {
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private searchService: SearchService
+              ) {
   }
 
   ngOnInit() {
+    this.searchService.getAllWorkers().subscribe(workers => {
+      this.workers = [...this.workers, ...workers];
+    });
   }
 
   onSubmit() {
+    this.searchService.getWorkers(this.workerDataForm).subscribe(workers => {
+      this.workers = workers;
+    });
+  }
+
+  goToWorkerView(id: string) {
+    this.router.navigateByUrl(`employee-details/${id}`);
   }
 }

@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import * as faker from 'faker/locale/pl';
 import {Job} from '../job';
+import {SearchService} from '../../api.service';
+import {TransportOrder} from '../../shared/modules/transportOrder';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-jobs-table',
@@ -8,40 +11,19 @@ import {Job} from '../job';
   styleUrls: ['./jobs-table.component.scss']
 })
 export class JobsTableComponent implements OnInit {
+  orders: Array<TransportOrder>;
+  displayedColumns: Array<keyof TransportOrder|string> = ['id', 'shipper', 'shipperAgent', 'carrier', 'status', 'statusDate', 'details'];
 
-  displayedColumns: Array<keyof Job> = ['id', 'date', 'description', 'employee', 'employer'];
-  exampleJobs: Array<Job> = [
-    {
-      id: 1,
-      date: new Date(),
-      description: faker.lorem.sentence(),
-      employer: 'XYZ',
-      employee: 'ZYX'
-    }, {
-      id: 2,
-      date: new Date(),
-      description: faker.lorem.sentence(),
-      employer: 'AAA',
-      employee: 'VVV'
-    }, {
-      id: 3,
-      date: new Date(),
-      description: faker.lorem.sentence(),
-      employer: 'BBB',
-      employee: 'CCC'
-    }, {
-      id: 4,
-      date: new Date(),
-      description: faker.lorem.sentence(),
-      employer: 'QQQ',
-      employee: 'WWW'
-    }
-  ];
-
-  constructor() {
+  constructor(private router: Router,
+              private searchService: SearchService) {
   }
 
   ngOnInit() {
+    this.searchService.getAllOrders().subscribe(allOrders => this.orders = allOrders);
+  }
+
+  goToDetails(id: string) {
+      this.router.navigateByUrl(`order-details/${id}`);
   }
 
 }

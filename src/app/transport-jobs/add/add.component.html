@@ -1,19 +1,100 @@
 <mat-card class="section-margin">
   <mat-card-title>Add order</mat-card-title>
-  <form name="worker-form" (ngSubmit)="onSubmit()">
+  <form name="job-form">
     <div class="row">
-      <mat-form-field class="col-md">
-        <input matInput type="date" placeholder="Date" name="date" aria-label="Date"
-               [(ngModel)]="jobDataForm.date">
-      </mat-form-field>
-      <mat-form-field class="col-md">
-        <input matInput type="text" placeholder="Description" name="description" aria-label="Description"
-               [(ngModel)]="jobDataForm.description">
-      </mat-form-field>
-      <mat-form-field class="col-md" *ngIf="jobDataForm.isExternal">
-        <input matInput type="text" placeholder="Employee" name="employee" aria-label="Employee"
-               [(ngModel)]="jobDataForm.employee">
-      </mat-form-field>
+      <div class="col-md">
+        <h3>Loads</h3>
+        <div>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Name" name="name" aria-label="Name"
+                   [(ngModel)]="jobDataForm.name">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Description" name="descriptiion" aria-label="Description"
+                   [(ngModel)]="jobDataForm.description">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Weight" name="weight" aria-label="Weight"
+                   [(ngModel)]="jobDataForm.weight">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Volume" name="volume" aria-label="Volume"
+                   [(ngModel)]="jobDataForm.volume">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-checkbox [(ngModel)]="jobDataForm.monStandard"
+                        name="monStandard">Mon standard
+          </mat-checkbox>
+        </div>
+        <h3>Loading dates</h3>
+        <div>
+          <div>
+            <mat-form-field>
+              <input matInput type="date" placeholder="Date from" name="datefrom" aria-label="datefrom"
+                     [(ngModel)]="jobDataForm.loadingDates.dateFrom">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <input matInput type="date" placeholder="Date from" name="datefrom" aria-label="datefrom"
+                     [(ngModel)]="jobDataForm.loadingDates.dateTo">
+            </mat-form-field>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md">
+        <h3>Loading Address</h3>
+        <div>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Street" name="street" aria-label="street"
+                   [(ngModel)]="jobDataForm.loadingAddress.street">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input matInput type="text" placeholder="House no." name="houseno" aria-label="houseno"
+                   [(ngModel)]="jobDataForm.loadingAddress.houseNo">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Local no." name="localno" aria-label="localno"
+                   [(ngModel)]="jobDataForm.loadingAddress.localNo">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Zip code" name="zipCode" aria-label="zipCode"
+                   [(ngModel)]="jobDataForm.loadingAddress.zipCode">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input matInput type="text" placeholder="City" name="city" aria-label="city"
+                   [(ngModel)]="jobDataForm.loadingAddress.city">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Country" name="country" aria-label="country"
+                   [(ngModel)]="jobDataForm.loadingAddress.country">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Phone" name="phone" aria-label="phone"
+                   [(ngModel)]="jobDataForm.loadingAddress.city">
+          </mat-form-field>
+        </div>
+      </div>
     </div>
     <button mat-button type="submit">Submit</button>
   </form>

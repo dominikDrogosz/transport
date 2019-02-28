@@ -1,0 +1,74 @@
+<div class="row">
+  <mat-card class="section-margin col-md">
+    <mat-card-title>General order information</mat-card-title>
+    <div>
+      <strong>Name:</strong> {{currentOrder.name}}
+    </div>
+    <div>
+      <strong>Description:</strong> {{currentOrder.description}}
+    </div>
+    <div>
+      <strong>Weight:</strong> {{currentOrder.weight}}kg
+    </div>
+    <div>
+      <strong>Volume:</strong> {{currentOrder.volume}}
+    </div>
+    <div>
+      <strong>Mon Standard:</strong> {{currentOrder.monStandard ? 'Yes' : 'No'}}
+    </div>
+  </mat-card>
+  <mat-card class="section-margin col-md">
+    <mat-card-title>Shipping information</mat-card-title>
+    <div>
+      <strong>Shipper:</strong> {{currentOrder.shipper}}
+    </div>
+    <div>
+      <strong>Shipper Agent:</strong> {{currentOrder.shipperAgent}}
+    </div>
+    <div>
+      <strong>Carrier:</strong> {{currentOrder.carrier}}
+    </div>
+    <div>
+      <strong>Status:</strong> {{currentOrder.status}}
+    </div>
+    <div>
+      <strong>Status date:</strong> {{currentOrder.statusDate | date:'mediumDate'}}
+    </div>
+  </mat-card>
+</div>
+
+<div class="row">
+  <mat-card class="section-margin col-md">
+    <mat-card-title>Loading address</mat-card-title>
+    <div>
+      <strong>City:</strong> {{currentOrder.loadingAddress.city}}
+    </div>
+    <div>
+      <strong>Street:</strong> {{currentOrder.loadingAddress.street}}
+    </div>
+    <div>
+      <strong>Local Number:</strong> {{currentOrder.loadingAddress.localNo}}
+    </div>
+    <div>
+      <strong>House number:</strong> {{currentOrder.loadingAddress.houseNo}}
+    </div>
+    <div>
+      <strong>Zip code:</strong> {{currentOrder.loadingAddress.zipCode}}
+    </div>
+    <div>
+      <strong>Country:</strong> {{currentOrder.loadingAddress.country}}
+    </div>
+    <div>
+      <strong>Phone:</strong> {{currentOrder.loadingAddress.phone}}
+    </div>
+  </mat-card>
+  <mat-card class="section-margin col-md">
+    <mat-card-title>Loading date</mat-card-title>
+    <div>
+      <strong>From date:</strong> {{currentOrder.loadingDates.dateFrom | date:'mediumDate'}}
+    </div>
+    <div>
+      <strong>To:</strong> {{currentOrder.loadingDates.dateTo | date:'mediumDate'}}
+    </div>
+  </mat-card>
+</div>
